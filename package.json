@@ -1,0 +1,15 @@
+{
+  "name": "snake",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "homepage": "https://anjani-ch.github.io/Snake",
+  "scripts": {
+    "deploy": "gh-pages -d dist"
+  },
+  "author": "Anjani Pranav Reddy Chapparapu",
+  "license": "ISC",
+  "dependencies": {
+    "gh-pages": "^3.2.3"
+  }
+}
