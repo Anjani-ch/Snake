@@ -70,9 +70,14 @@ const detectHit = () => {
 
     const hasEatenFood = snakeHead.x + square.sizeX > food.x && snakeHead.x + square.sizeX <= food.x + square.sizeX && snakeHead.y >= food.y && snakeHead.y + square.sizeY <= food.y + square.sizeY
 
-    const isOutOfBounds = snakeHead.x + square.sizeX > canvas.width || snakeHead.x < 0 || snakeHead.y + square.sizeY === 0 || snakeHead.y + square.sizeY > canvas.height
-
     let hasEatenSelf = false
+
+    snake.body.forEach(part => {
+        if (part.x > canvas.width) part.x = 0
+        if (part.x + square.sizeX < 0) part.x = canvas.width - square.sizeX
+        if (part.y > canvas.height) part.y = 0
+        if (part.y + square.sizeY < 0) part.y = canvas.height - square.sizeY
+    })
 
     snake.body.forEach((part, index) => part.x === snakeHead.x && part.y === snakeHead.y && index ? hasEatenSelf = true : '')
 
@@ -81,7 +86,7 @@ const detectHit = () => {
         setFoodSpawn()
     }
 
-    if (isOutOfBounds || hasEatenSelf) stopGame()
+    if (hasEatenSelf) stopGame()
 }
 
 const move = () => {
