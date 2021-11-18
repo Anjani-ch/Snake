@@ -19,7 +19,7 @@ const startSnakeBody = snake.body
 
 const food = {}
 
-const time = 150
+const time = 60
 
 let interval = null
 
@@ -41,7 +41,7 @@ const generateFood = () => {
 
 const setFoodSpawn = () => {
     for (let i = 0; i < 1000; i++) {
-        const randomX = Math.round(Math.random() * canvas.width - square.sizeX)
+        const randomX = Math.round(Math.random() * (canvas.width - square.sizeX))
 
         if (randomX % 10 === 0) {
             food.x = randomX
@@ -50,7 +50,7 @@ const setFoodSpawn = () => {
     }
 
     for (let i = 0; i < 1000; i++) {
-        const randomY = Math.round(Math.random() * canvas.height - square.sizeY)
+        const randomY = Math.round(Math.random() * (canvas.height - square.sizeY))
 
         if (randomY % 10 === 0) {
             food.y = randomY
